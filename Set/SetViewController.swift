@@ -21,7 +21,7 @@ class SetViewController: UIViewController {
         }
     }
     @IBOutlet weak var deal3CardsButton: UIButton!
-    @IBOutlet weak var newGameButton: UIButton! 
+    @IBOutlet weak var newGameButton: UIButton!
     @IBOutlet weak var scoreLabel: UILabel!
     
     override func viewDidLoad() {

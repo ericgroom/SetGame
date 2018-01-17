@@ -108,29 +108,20 @@ class SetCardView: UIView {
                     
                     let noOfLines = SizeConstants.stripedNumberOfLinesInEachDirection
                     let xOffset = shape.bounds.width / CGFloat(noOfLines)
-                    var lowerLeftPoint = CGPoint(x: shape.bounds.minX, y: shape.bounds.maxY)
-                    var upperRightPoint = CGPoint(x: shape.bounds.maxX, y: shape.bounds.minY)
-                    for _ in 0..<noOfLines {
-                        let line = UIBezierPath()
-                        line.move(to: lowerLeftPoint)
-                        line.addLine(to: upperRightPoint)
-                        line.lineWidth = SizeConstants.stripedLineWidth
-                        line.close()
-                        line.stroke()
-                        lowerLeftPoint = lowerLeftPoint.offsetBy(x: xOffset, y: 0)
-                        upperRightPoint = upperRightPoint.offsetBy(x: xOffset, y: 0)
-                    }
-                    lowerLeftPoint = CGPoint(x: shape.bounds.minX, y: shape.bounds.maxY)
-                    upperRightPoint = CGPoint(x: shape.bounds.maxX, y: shape.bounds.minY)
-                    for _ in 0..<noOfLines {
-                        let line = UIBezierPath()
-                        line.move(to: lowerLeftPoint)
-                        line.addLine(to: upperRightPoint)
-                        line.close()
-                        line.lineWidth = SizeConstants.stripedLineWidth
-                        line.stroke()
-                        lowerLeftPoint = lowerLeftPoint.offsetBy(x: -xOffset, y: 0)
-                        upperRightPoint = upperRightPoint.offsetBy(x: -xOffset, y: 0)
+                    let initLowerLeftPoint = CGPoint(x: shape.bounds.minX, y: shape.bounds.maxY)
+                    let initUpperRightPoint = CGPoint(x: shape.bounds.maxX, y: shape.bounds.minY)
+                    for index in 0..<noOfLines {
+                        let positiveLowerLeftPoint = initLowerLeftPoint.offsetBy(x: CGFloat(index) * xOffset, y: 0)
+                        let positiveUpperRightPoint = initUpperRightPoint.offsetBy(x: CGFloat(index) * xOffset, y: 0)
+                        let positiveLine = UIBezierPath(lineBetween: (positiveLowerLeftPoint, positiveUpperRightPoint))
+                        positiveLine.lineWidth = SizeConstants.stripedLineWidth
+                        positiveLine.stroke()
+                        
+                        let negativeLowerLeftPoint = initLowerLeftPoint.offsetBy(x: CGFloat(index) * -xOffset, y: 0)
+                        let negativeUpperRightPoint = initUpperRightPoint.offsetBy(x: CGFloat(index) * -xOffset, y: 0)
+                        let negativeLine = UIBezierPath(lineBetween: (negativeLowerLeftPoint, negativeUpperRightPoint))
+                        negativeLine.lineWidth = SizeConstants.stripedLineWidth
+                        negativeLine.stroke()
                     }
                     
                     context?.restoreGState()
@@ -218,8 +209,6 @@ class SetCardView: UIView {
     }
     
     convenience init(symbol: Symbol, quantity: Quantity, shading: Shading, color: Color) {
-        let frame = SetCardView.deckPosition ?? CGRect.zero
-        print(frame)
         self.init(frame: SetCardView.deckPosition ?? CGRect.zero)
         self.symbol = symbol
         self.quantity = quantity
@@ -248,5 +237,13 @@ class SetCardView: UIView {
 extension CGPoint {
     func offsetBy(x: CGFloat, y: CGFloat) -> CGPoint {
         return CGPoint(x: self.x + x, y: self.y + y)
+    }
+}
+
+extension UIBezierPath {
+    convenience init(lineBetween points: (CGPoint, CGPoint)) {
+        self.init()
+        self.move(to: points.0)
+        self.addLine(to: points.1)
     }
 }
