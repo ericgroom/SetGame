@@ -72,16 +72,18 @@ class SetGame {
     }
     
     private func handlePotentialMatch(withCard card: Card) {
-        if selectedCards.count == 3, Card.doesMakeSet(selectedCards) {
-            score += scoreForMatch
-            board.remove(objectsIn: selectedCards)
-            selectedCards.removeAll()
-            if board.count < 12 {
-                dealCards()
+        if selectedCards.count == 3 {
+            if Card.doesMakeSet(selectedCards) {
+                score += scoreForMatch
+                board.remove(objectsIn: selectedCards)
+                selectedCards.removeAll()
+                if board.count < 12 {
+                    dealCards()
+                }
+            } else {
+                selectedCards.removeAll()
+                score -= penaltyForMismatch
             }
-        } else {
-            selectedCards.removeAll()
-            score -= penaltyForMismatch
         }
     }
     
