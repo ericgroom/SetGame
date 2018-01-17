@@ -26,18 +26,27 @@ class SetViewController: UIViewController {
         }
     }
     
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        updateViewFromModel()
+    }
+    
     private func updateViewFromModel() {
         // use array instead of cardToViewMap.values to preserve order and prevent newly delt cards from being added to middle of board
         cardContainer.cards = game.board.map { updateOrCreateCardView(forCard: $0) }
         
-        scoreLabel.text = "Score: \(game.score)"
+        scoreLabel.text = traitCollection.verticalSizeClass == .compact ? "Score\n\(game.score)" : "Score: \(game.score)"
         deal3CardsButton.isUserInteractionEnabled = game.canDealMoreCards
         deal3CardsButton.backgroundColor = game.canDealMoreCards ? #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0) : #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
     }
     
     @IBOutlet private weak var deal3CardsButton: UIButton!
     @IBOutlet private weak var newGameButton: UIButton!
-    @IBOutlet private weak var scoreLabel: UILabel!
+    @IBOutlet private weak var scoreLabel: UILabel! {
+        didSet {
+            scoreLabel.numberOfLines = 0
+        }
+    }
     
     @IBAction private func deal3CardsTouched() {
         game.dealCards()

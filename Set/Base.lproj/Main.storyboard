@@ -24,67 +24,98 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Rf2-sZ-mo9">
-                                <rect key="frame" x="16" y="605" width="343" height="30"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="lLP-wS-Eda">
+                                <rect key="frame" x="16" y="578" width="343" height="73"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XU5-Yc-SXI">
-                                        <rect key="frame" x="0.0" y="0.0" width="167.5" height="30"/>
-                                        <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" title="New Game">
-                                            <color key="titleColor" red="0.30840110780000002" green="0.5618229508" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="8"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="newGameTouched" destination="BYZ-38-t0r" eventType="touchUpInside" id="dVe-hM-1lU"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ldd-oq-J2x">
-                                        <rect key="frame" x="175.5" y="0.0" width="167.5" height="30"/>
-                                        <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" title="Deal 3 Cards">
-                                            <color key="titleColor" red="0.30840110780000002" green="0.5618229508" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="8"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="deal3CardsTouched" destination="BYZ-38-t0r" eventType="touchUpInside" id="NCh-ED-YOi"/>
-                                        </connections>
-                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score: 0" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dxU-XP-MjT">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="32.5"/>
+                                        <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="28"/>
+                                        <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="highlightedColor" white="0.53211823436948991" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="shadowColor" white="0.097981949647267655" alpha="1" colorSpace="calibratedWhite"/>
+                                        <size key="shadowOffset" width="1" height="-1"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Rf2-sZ-mo9">
+                                        <rect key="frame" x="0.0" y="40.5" width="343" height="32.5"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XU5-Yc-SXI">
+                                                <rect key="frame" x="0.0" y="0.0" width="167.5" height="32.5"/>
+                                                <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <state key="normal" title="New Game">
+                                                    <color key="titleColor" red="0.30840110780000002" green="0.5618229508" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="8"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="newGameTouched" destination="BYZ-38-t0r" eventType="touchUpInside" id="dVe-hM-1lU"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ldd-oq-J2x">
+                                                <rect key="frame" x="175.5" y="0.0" width="167.5" height="32.5"/>
+                                                <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <state key="normal" title="Deal 3 Cards">
+                                                    <color key="titleColor" red="0.30840110780000002" green="0.5618229508" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="8"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="deal3CardsTouched" destination="BYZ-38-t0r" eventType="touchUpInside" id="NCh-ED-YOi"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <variation key="heightClass=compact" axis="vertical"/>
+                                    </stackView>
                                 </subviews>
+                                <variation key="heightClass=compact" alignment="fill" axis="vertical"/>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dxU-XP-MjT">
-                                <rect key="frame" x="132.5" y="556.5" width="111.5" height="32.5"/>
-                                <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="28"/>
-                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="highlightedColor" white="0.53211823436948991" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="shadowColor" white="0.097981949647267655" alpha="1" colorSpace="calibratedWhite"/>
-                                <size key="shadowOffset" width="1" height="-1"/>
-                            </label>
                             <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cBB-fc-teq" customClass="CardContainer" customModule="Set" customModuleProvider="target">
-                                <rect key="frame" x="16" y="36" width="343" height="504.5"/>
+                                <rect key="frame" x="16" y="36" width="343" height="526"/>
                                 <color key="backgroundColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.30840110780000002" green="0.5618229508" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cBB-fc-teq" secondAttribute="trailing" constant="16" id="N1x-7t-94U"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Rf2-sZ-mo9" secondAttribute="trailing" constant="16" id="Y9I-qE-F3F"/>
-                            <constraint firstItem="cBB-fc-teq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="ax1-hE-WeH"/>
-                            <constraint firstItem="dxU-XP-MjT" firstAttribute="top" secondItem="cBB-fc-teq" secondAttribute="bottom" constant="16" id="e93-lQ-65f"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Rf2-sZ-mo9" secondAttribute="bottom" constant="32" id="fRA-3f-Fdu"/>
-                            <constraint firstItem="cBB-fc-teq" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="hoL-qQ-8r2"/>
-                            <constraint firstItem="Rf2-sZ-mo9" firstAttribute="top" secondItem="dxU-XP-MjT" secondAttribute="bottom" constant="16" id="loc-iC-m4a"/>
-                            <constraint firstItem="Rf2-sZ-mo9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="rSS-ih-f8g"/>
-                            <constraint firstItem="dxU-XP-MjT" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="zsa-Ba-Aly"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="lLP-wS-Eda" secondAttribute="trailing" constant="16" id="6cc-5m-QJV"/>
+                            <constraint firstItem="lLP-wS-Eda" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="EvW-eV-wrK"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="cBB-fc-teq" secondAttribute="bottom" constant="16" id="N7l-ZH-Dha"/>
+                            <constraint firstItem="lLP-wS-Eda" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="XZZ-rw-vix"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cBB-fc-teq" secondAttribute="trailing" constant="16" id="ZKM-dm-SpT"/>
+                            <constraint firstItem="lLP-wS-Eda" firstAttribute="top" secondItem="cBB-fc-teq" secondAttribute="bottom" constant="16" id="cVc-lh-NIm"/>
+                            <constraint firstItem="cBB-fc-teq" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="cbs-dt-lqk">
+                                <variation key="heightClass=compact" constant="16"/>
+                            </constraint>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="lLP-wS-Eda" secondAttribute="trailing" constant="16" id="eDn-eI-yZN"/>
+                            <constraint firstItem="lLP-wS-Eda" firstAttribute="leading" secondItem="cBB-fc-teq" secondAttribute="trailing" constant="-111.5" id="fDR-vd-cCM">
+                                <variation key="heightClass=compact" constant="16"/>
+                            </constraint>
+                            <constraint firstItem="cBB-fc-teq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="lwC-fB-ibU"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="lLP-wS-Eda" secondAttribute="bottom" constant="16" id="q1N-lU-JLr"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="N7l-ZH-Dha"/>
+                                <exclude reference="EvW-eV-wrK"/>
+                                <exclude reference="fDR-vd-cCM"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact">
+                            <mask key="constraints">
+                                <include reference="N7l-ZH-Dha"/>
+                                <exclude reference="ZKM-dm-SpT"/>
+                                <exclude reference="q1N-lU-JLr"/>
+                                <include reference="EvW-eV-wrK"/>
+                                <exclude reference="XZZ-rw-vix"/>
+                                <exclude reference="cVc-lh-NIm"/>
+                                <include reference="fDR-vd-cCM"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="cardContainer" destination="cBB-fc-teq" id="mNN-ni-xeg"/>
@@ -95,7 +126,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
+            <point key="canvasLocation" x="136.28185907046478" y="132"/>
         </scene>
     </scenes>
 </document>
