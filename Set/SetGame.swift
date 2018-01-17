@@ -90,16 +90,6 @@ class SetGame {
         handlePotentialMatch(withCard: card)
     }
     
-    func shuffle() {
-        deck += board
-        board.removeAll()
-        selectedCards.removeAll()
-        for _ in 0..<12 {
-            let randomIndex = deck.count.arc4random
-            board.append(deck.remove(at: randomIndex))
-        }
-    }
-    
     init() {
         deck = createDeck()
         var shuffled = [Card]()
