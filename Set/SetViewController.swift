@@ -10,15 +10,15 @@ import UIKit
 
 class SetViewController: UIViewController {
     
-    var game = SetGame()
-    var cardToViewMap = [Card: SetCardView]() {
+    private var game = SetGame()
+    private var cardToViewMap = [Card: SetCardView]() {
         didSet {
             cardToViewMap.filter { !game.board.contains($0.key) }
                 .forEach { cardToViewMap.removeValue(forKey: $0.key) }
         }
     }
     
-    @IBOutlet weak var cardContainer: CardContainer! {
+    @IBOutlet private weak var cardContainer: CardContainer! {
         didSet {
             let swipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(SetViewController.swipeOnCardContainer))
             swipeGestureRecognizer.direction = .down
@@ -35,21 +35,21 @@ class SetViewController: UIViewController {
         deal3CardsButton.backgroundColor = game.canDealMoreCards ? #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0) : #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
     }
     
-    @IBOutlet weak var deal3CardsButton: UIButton!
-    @IBOutlet weak var newGameButton: UIButton!
-    @IBOutlet weak var scoreLabel: UILabel!
+    @IBOutlet private weak var deal3CardsButton: UIButton!
+    @IBOutlet private weak var newGameButton: UIButton!
+    @IBOutlet private weak var scoreLabel: UILabel!
     
-    @IBAction func deal3CardsTouched() {
+    @IBAction private func deal3CardsTouched() {
         game.dealCards()
         updateViewFromModel()
     }
     
-    @IBAction func newGameTouched() {
+    @IBAction private func newGameTouched() {
         game = SetGame()
         updateViewFromModel()
     }
     
-    @objc func cardTapped(recognizer: UITapGestureRecognizer) {
+    @objc private func cardTapped(recognizer: UITapGestureRecognizer) {
         switch recognizer.state {
         case .ended:
             if let view = recognizer.view as? SetCardView, let card = cardToViewMap.key(forValue: view) {
@@ -60,7 +60,7 @@ class SetViewController: UIViewController {
         }
     }
     
-    @objc func swipeOnCardContainer(recognizer: UISwipeGestureRecognizer) {
+    @objc private func swipeOnCardContainer(recognizer: UISwipeGestureRecognizer) {
         switch recognizer.state {
         case .ended:
             deal3CardsTouched()
@@ -78,7 +78,7 @@ class SetViewController: UIViewController {
         }
     }
     
-    func updateOrCreateCardView(forCard card: Card) -> SetCardView {
+    private func updateOrCreateCardView(forCard card: Card) -> SetCardView {
         let symbolsMap: [Int: SetCardView.Symbol] = [
             1: .diamond,
             2: .oval,
