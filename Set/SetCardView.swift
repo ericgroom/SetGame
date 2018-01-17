@@ -16,7 +16,7 @@ class SetCardView: UIView {
     var quantity: Quantity = .three { didSet { setNeedsDisplay() }}
     var color: Color = .purple { didSet { setNeedsDisplay() }}
     var isSelected: Bool = false { didSet { setNeedsDisplay() }}
-    var isFaceUp: Bool = true { didSet { setNeedsDisplay() }}
+    var isFaceUp: Bool = false { didSet { setNeedsDisplay() }}
     
     static var deckPosition: CGRect?
     
