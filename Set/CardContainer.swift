@@ -14,26 +14,7 @@ class CardContainer: UIView {
     var cards = [SetCardView]() {
         didSet {
             oldValue.filter { !cards.contains($0) }
-                .forEach { view in
-                    UIView.transition(
-                        with: view,
-                        duration: 0.4,
-                        options: [.curveEaseInOut],
-                        animations: { view.transform = CGAffineTransform.identity.scaledBy(x: 1.1, y: 1.1) },
-                        completion: { finished in
-                            UIView.transition(
-                                with: view,
-                                duration: 0.6,
-                                options: [.allowAnimatedContent],
-                                animations: {
-                                    view.alpha = 0
-                                    view.transform = CGAffineTransform.identity.scaledBy(x: 0.1, y: 0.1)
-                            },
-                                completion: {finished in view.removeFromSuperview()}
-                            )
-                    }
-                    )
-            }
+                .forEach { triggerRemoveCardAnimation(onView: $0) }
             setNeedsLayout()
         }
     }
@@ -69,16 +50,43 @@ class CardContainer: UIView {
                     animations: { self.cards[index].frame = frame.insetBy(dx: self.horizontalPadding, dy: self.verticalPadding) },
                     completion: { finished in
                         if index < self.cards.count, !self.cards[index].isFaceUp {
-                            UIView.transition(
-                                with: self.cards[index],
-                                duration: 0.4,
-                                options: [.transitionFlipFromLeft],
-                                animations: { self.cards[index].isFaceUp = true },
-                                completion: nil)
-                        } }
+                            self.triggerCardFlipAnimation(onView: self.cards[index])
+                        }
+                }
                 )
             }
         }
+    }
+    
+    
+    private func triggerCardFlipAnimation(onView view: SetCardView) {
+        UIView.transition(
+            with: view,
+            duration: 0.4,
+            options: [.transitionFlipFromLeft],
+            animations: { view.isFaceUp = true },
+            completion: nil)
+    }
+    
+    private func triggerRemoveCardAnimation(onView view: UIView) {
+        UIView.transition(
+            with: view,
+            duration: 0.4,
+            options: [.curveEaseInOut],
+            animations: { view.transform = CGAffineTransform.identity.scaledBy(x: 1.1, y: 1.1) },
+            completion: { finished in
+                UIView.transition(
+                    with: view,
+                    duration: 0.6,
+                    options: [.allowAnimatedContent],
+                    animations: {
+                        view.alpha = 0
+                        view.transform = CGAffineTransform.identity.scaledBy(x: 0.1, y: 0.1)
+                },
+                    completion: {finished in view.removeFromSuperview()}
+                )
+        }
+        )
     }
 }
 
