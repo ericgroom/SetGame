@@ -26,11 +26,9 @@ class SetViewController: UIViewController {
         }
     }
     
-    func updateViewFromModel() {
+    private func updateViewFromModel() {
         // use array instead of cardToViewMap.values to preserve order and prevent newly delt cards from being added to middle of board
-        let views = game.board.map { updateOrCreateCardView(forCard: $0) }
-        cardToViewMap.forEach { $0.value.isSelected = game.selectedCards.contains($0.key) }
-        cardContainer.cards = views
+        cardContainer.cards = game.board.map { updateOrCreateCardView(forCard: $0) }
         
         scoreLabel.text = "Score: \(game.score)"
         deal3CardsButton.isUserInteractionEnabled = game.canDealMoreCards
@@ -107,7 +105,11 @@ class SetViewController: UIViewController {
             if symbol == nil || quantity == nil || shading == nil || color == nil {
                 return nil
             } else {
-                return SetCardView(symbol: symbol!, quantity: quantity!, shading: shading!, color: color!)
+                let view = SetCardView(symbol: symbol!, quantity: quantity!, shading: shading!, color: color!)
+                let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(SetViewController.cardTapped(recognizer:)))
+                view.addGestureRecognizer(tapGestureRecognizer)
+                cardToViewMap[card] = view
+                return view
             }
         }
         
@@ -116,12 +118,10 @@ class SetViewController: UIViewController {
             view.shading = shadingMap[card.shading]!
             view.quantity = SetCardView.Quantity(rawValue: card.quantity)!
             view.symbol = symbolsMap[card.symbol]!
+            view.isSelected = game.isSelected(card)
             return view
         } else {
             let view = createViewFromModel(forCard: card)!
-            let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(SetViewController.cardTapped(recognizer:)))
-            view.addGestureRecognizer(tapGestureRecognizer)
-            cardToViewMap[card] = view
             return view
         }
     }

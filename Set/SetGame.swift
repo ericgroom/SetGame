@@ -15,9 +15,13 @@ class SetGame {
         return deck.count > 0
     }
     
-    private(set) var selectedCards = [Card]()
+    private var selectedCards = [Card]()
     
     private(set) var score = 0
+    
+    func isSelected(_ card: Card) -> Bool {
+        return selectedCards.contains(card)
+    }
     
     private func createDeck() -> [Card] {
         var newDeck = [Card]()
@@ -47,6 +51,7 @@ class SetGame {
     private var penaltyForDeselect: Int {
         return score > 0 ? 1 : 0
     }
+    
     private let penaltyForMismatch = 5
     
     func dealCards(numberOfCards: Int = 3) {
@@ -57,30 +62,32 @@ class SetGame {
         }
     }
     
-    func cardChosen(card: Card) {
+    private func updateSelectedCards(withCard card: Card) {
         if selectedCards.contains(card) {
             selectedCards.remove(at: selectedCards.index(of: card)!)
             score -= penaltyForDeselect
         } else {
             selectedCards.append(card)
         }
-        if selectedCards.count == 3 {
-            if Card.doesMakeSet(selectedCards) {
-                score += scoreForMatch
-                for card in selectedCards {
-                    if let index = board.index(of: card) {
-                        board.remove(at: index)
-                    }
-                }
-                selectedCards.removeAll()
-                if board.count < 12 {
-                    dealCards()
-                }
-            } else {
-                selectedCards.removeAll()
-                score -= penaltyForMismatch
+    }
+    
+    private func handlePotentialMatch(withCard card: Card) {
+        if selectedCards.count == 3, Card.doesMakeSet(selectedCards) {
+            score += scoreForMatch
+            board.remove(objectsIn: selectedCards)
+            selectedCards.removeAll()
+            if board.count < 12 {
+                dealCards()
             }
+        } else {
+            selectedCards.removeAll()
+            score -= penaltyForMismatch
         }
+    }
+    
+    func cardChosen(card: Card) {
+        updateSelectedCards(withCard: card)
+        handlePotentialMatch(withCard: card)
     }
     
     func shuffle() {
@@ -114,6 +121,16 @@ extension Int {
             return -Int(arc4random_uniform(UInt32(abs(self))))
         } else {
             return 0
+        }
+    }
+}
+
+extension Array where Element: Equatable {
+    mutating func remove(objectsIn elements: Array) {
+        for elem in elements {
+            if let index = self.index(of: elem) {
+                self.remove(at: index)
+            }
         }
     }
 }
