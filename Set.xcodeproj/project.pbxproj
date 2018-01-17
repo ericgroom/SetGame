@@ -7,24 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BA21371A2005A21B00D77FF0 /* SetCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2137192005A21B00D77FF0 /* SetCardView.swift */; };
+		BA21371E2006ABB100D77FF0 /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA21371D2006ABB100D77FF0 /* Grid.swift */; };
+		BA2137202007CEDF00D77FF0 /* CardContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA21371F2007CEDF00D77FF0 /* CardContainer.swift */; };
 		BA4B0C822003F1D6002AEF38 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4B0C812003F1D6002AEF38 /* AppDelegate.swift */; };
-		BA4B0C842003F1D6002AEF38 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4B0C832003F1D6002AEF38 /* ViewController.swift */; };
+		BA4B0C842003F1D6002AEF38 /* SetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4B0C832003F1D6002AEF38 /* SetViewController.swift */; };
 		BA4B0C872003F1D6002AEF38 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA4B0C852003F1D6002AEF38 /* Main.storyboard */; };
 		BA4B0C892003F1D7002AEF38 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA4B0C882003F1D7002AEF38 /* Assets.xcassets */; };
 		BA4B0C8C2003F1D7002AEF38 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA4B0C8A2003F1D7002AEF38 /* LaunchScreen.storyboard */; };
-		BA4B0C952003F947002AEF38 /* Set.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4B0C942003F947002AEF38 /* Set.swift */; };
+		BA4B0C952003F947002AEF38 /* SetGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4B0C942003F947002AEF38 /* SetGame.swift */; };
 		BA4B0C972003F980002AEF38 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4B0C962003F980002AEF38 /* Card.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BA2137192005A21B00D77FF0 /* SetCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetCardView.swift; sourceTree = "<group>"; };
+		BA21371D2006ABB100D77FF0 /* Grid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
+		BA21371F2007CEDF00D77FF0 /* CardContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardContainer.swift; sourceTree = "<group>"; };
 		BA4B0C7E2003F1D6002AEF38 /* Set.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Set.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA4B0C812003F1D6002AEF38 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BA4B0C832003F1D6002AEF38 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BA4B0C832003F1D6002AEF38 /* SetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetViewController.swift; sourceTree = "<group>"; };
 		BA4B0C862003F1D6002AEF38 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BA4B0C882003F1D7002AEF38 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BA4B0C8B2003F1D7002AEF38 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BA4B0C8D2003F1D7002AEF38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BA4B0C942003F947002AEF38 /* Set.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Set.swift; sourceTree = "<group>"; };
+		BA4B0C942003F947002AEF38 /* SetGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetGame.swift; sourceTree = "<group>"; };
 		BA4B0C962003F980002AEF38 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -59,11 +65,14 @@
 			isa = PBXGroup;
 			children = (
 				BA4B0C932003F3A9002AEF38 /* Supporting Files */,
-				BA4B0C832003F1D6002AEF38 /* ViewController.swift */,
+				BA4B0C832003F1D6002AEF38 /* SetViewController.swift */,
+				BA2137192005A21B00D77FF0 /* SetCardView.swift */,
 				BA4B0C852003F1D6002AEF38 /* Main.storyboard */,
-				BA4B0C942003F947002AEF38 /* Set.swift */,
+				BA4B0C942003F947002AEF38 /* SetGame.swift */,
 				BA4B0C962003F980002AEF38 /* Card.swift */,
 				BA4B0C8D2003F1D7002AEF38 /* Info.plist */,
+				BA21371D2006ABB100D77FF0 /* Grid.swift */,
+				BA21371F2007CEDF00D77FF0 /* CardContainer.swift */,
 			);
 			path = Set;
 			sourceTree = "<group>";
@@ -150,10 +159,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BA4B0C842003F1D6002AEF38 /* ViewController.swift in Sources */,
+				BA21371A2005A21B00D77FF0 /* SetCardView.swift in Sources */,
+				BA4B0C842003F1D6002AEF38 /* SetViewController.swift in Sources */,
 				BA4B0C822003F1D6002AEF38 /* AppDelegate.swift in Sources */,
-				BA4B0C952003F947002AEF38 /* Set.swift in Sources */,
+				BA2137202007CEDF00D77FF0 /* CardContainer.swift in Sources */,
+				BA4B0C952003F947002AEF38 /* SetGame.swift in Sources */,
 				BA4B0C972003F980002AEF38 /* Card.swift in Sources */,
+				BA21371E2006ABB100D77FF0 /* Grid.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,6 +305,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9AH9J2C937;
 				INFOPLIST_FILE = Set/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ericgroom.Set;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -308,6 +321,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9AH9J2C937;
 				INFOPLIST_FILE = Set/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ericgroom.Set;
 				PRODUCT_NAME = "$(TARGET_NAME)";
