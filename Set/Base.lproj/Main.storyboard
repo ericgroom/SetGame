@@ -33,6 +33,11 @@
                                         <state key="normal" title="New Game">
                                             <color key="titleColor" red="0.30840110780000002" green="0.5618229508" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="newGameTouched" destination="BYZ-38-t0r" eventType="touchUpInside" id="dVe-hM-1lU"/>
                                         </connections>
@@ -43,6 +48,11 @@
                                         <state key="normal" title="Deal 3 Cards">
                                             <color key="titleColor" red="0.30840110780000002" green="0.5618229508" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="deal3CardsTouched" destination="BYZ-38-t0r" eventType="touchUpInside" id="NCh-ED-YOi"/>
                                         </connections>

@@ -20,16 +20,8 @@ class SetViewController: UIViewController {
             cardContainer.addGestureRecognizer(swipeGestureRecognizer)
         }
     }
-    @IBOutlet weak var deal3CardsButton: UIButton! {
-        didSet {
-            deal3CardsButton.layer.cornerRadius = 8.0
-        }
-    }
-    @IBOutlet weak var newGameButton: UIButton! {
-        didSet {
-            newGameButton.layer.cornerRadius = 8.0
-        }
-    }
+    @IBOutlet weak var deal3CardsButton: UIButton!
+    @IBOutlet weak var newGameButton: UIButton! 
     @IBOutlet weak var scoreLabel: UILabel!
     
     override func viewDidLoad() {
