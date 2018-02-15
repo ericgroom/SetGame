@@ -2,6 +2,7 @@
 An iOS implementation of [Set](https://en.wikipedia.org/wiki/Set_(game)) created as a part of completing Stanford's CS 193P course in iOS 11
 
 <img src="sample.gif" alt="sample match gif" height="300"></img>
+
 *gif plays much slower than on actual device*
 
 ## Features:
