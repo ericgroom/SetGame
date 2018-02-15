@@ -1,7 +1,9 @@
 # SetGame
 An iOS implementation of [Set](https://en.wikipedia.org/wiki/Set_(game)) created as a part of completing Stanford's CS 193P course in iOS 11
 
-![gif of sample match](sample.gif)
+<img src="sample.gif" alt="sample match gif" height="300"></img>
+*gif plays much slower than on actual device*
+
 ## Features:
   1. Plays a game of Set according to the rules listed on Wikipedia
   2. Custom drawing of cards and card faces using Core Graphics
